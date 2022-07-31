@@ -1,10 +1,13 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 // import 'package:flutter/services.dart';
 import 'package:flutter_facebook_clone/color/colors.dart';
+import 'package:flutter_facebook_clone/data/post_data.dart';
 import 'package:flutter_facebook_clone/data/story_data.dart';
 import 'package:flutter_facebook_clone/data/user_data.dart';
 import 'package:flutter_facebook_clone/widgets/widgets.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import '../models/models.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -59,13 +62,26 @@ class HomeScreen extends StatelessWidget {
 
 //----------------------------------------------------------------------------------------------------
 
-        SliverToBoxAdapter(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 6),
-            child: StoriesSection(currentUser: currentUser , stories:stories),
+          SliverToBoxAdapter(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+              child: StoriesSection(currentUser: currentUser, stories: stories),
+            ),
           ),
-        )
 
+//----------------------------------------------------------------------------------------------------
+
+          SliverList(
+            delegate: SliverChildBuilderDelegate(
+              (context, index) {
+                final eachPost = posts[index];
+                return PostContainer(eachPost: eachPost);
+              },
+              childCount: posts.length,
+            ),
+          ),
+
+//----------------------------------------------------------------------------------------------------
         ],
       ),
     );
