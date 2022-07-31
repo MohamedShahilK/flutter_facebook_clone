@@ -1,4 +1,3 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 // import 'package:flutter/services.dart';
 import 'package:flutter_facebook_clone/color/colors.dart';
@@ -7,7 +6,6 @@ import 'package:flutter_facebook_clone/data/story_data.dart';
 import 'package:flutter_facebook_clone/data/user_data.dart';
 import 'package:flutter_facebook_clone/widgets/widgets.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
-import '../models/models.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
